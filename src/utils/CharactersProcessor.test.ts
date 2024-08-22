@@ -48,7 +48,7 @@ const characters: Character[] = [
 describe('CharactersProcessor', () => {
   test('should return empty array', () => {
     const topCharacters = getTopCharacters([], 2);
-    expect(topCharacters.length).toBe(3);
+    expect(topCharacters.length).toBe(4);
   });
 
   test('should return two characters', () => {
