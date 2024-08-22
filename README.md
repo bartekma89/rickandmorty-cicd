@@ -1,4 +1,4 @@
-# Opanuj Frontend: AI Edition - Frontend Bootstrap
+# Opanuj Frontend: AI Edition - Frontend Bootstrap - Rick and Morty Edition
 
 ![](./_resources/img/header.png)
 
