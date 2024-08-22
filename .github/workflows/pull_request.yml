@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  deploy:
+  pull_request:
     runs-on: windows-latest
     env:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
