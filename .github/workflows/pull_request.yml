@@ -44,7 +44,7 @@ jobs:
 
       - name: PREVIEW Vercel Deployment
         run: |
-          DEPLOY_OUTPUT="$(vercel deploy --token${{ secrets.VERCEL_TOKEN }})"
+          DEPLOY_OUTPUT="$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }})"
           DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | grep http | tail -n 1)
           echo "DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
 
