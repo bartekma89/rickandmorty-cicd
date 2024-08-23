@@ -11,3 +11,4 @@ runs:
 
     - name: Install dependencies
       run: npm run ci
+      shell: bash
