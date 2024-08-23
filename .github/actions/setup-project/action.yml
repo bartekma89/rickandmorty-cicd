@@ -1,5 +1,5 @@
 name: Setup
-descriptipon: Setup node project
+description: Setup node project
 
 runs:
   using: 'composite'
