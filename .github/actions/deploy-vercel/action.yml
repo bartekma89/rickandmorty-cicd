@@ -12,6 +12,7 @@ runs:
   steps:
     - name: Install Vercel CLI
       run: npm install --global vercel@canary
+      shell: bash
 
     - name: PREVIEW Vercel Deployment
       run: |
