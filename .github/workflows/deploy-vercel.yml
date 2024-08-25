@@ -6,6 +6,8 @@ on:
 jobs:
   deploy-vercel:
     runs-on: windows-latest
+    environment:
+      name: 'Staging'
 
     steps:
       - name: Checkout repository
