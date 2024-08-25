@@ -13,7 +13,7 @@ const App = () => {
       <footer>
         <div className="flex">
           <img
-            src="./_resources/img/logo-dark-vertical-1.png"
+            src="/resources/img/logo-dark-vertical-1.png"
             alt="Logo projektu Opanuj Frontend"
             className="w-32 mt-4 mx-auto justify-center"
           />
