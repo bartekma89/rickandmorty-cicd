@@ -28,8 +28,9 @@ jobs:
       - name: Deploy to Vercel
         uses: ./.github/actions/deploy-vercel
         with:
-          mode: 'production'
+          mode: 'stage'
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          env: 'STAGE'
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
