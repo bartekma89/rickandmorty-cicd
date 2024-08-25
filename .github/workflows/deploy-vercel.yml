@@ -28,7 +28,7 @@ jobs:
       - name: Deploy to Vercel
         uses: ./.github/actions/deploy-vercel
         with:
-          mode: 'stage'
+          mode: 'production'
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           env: 'STAGE'
         env:

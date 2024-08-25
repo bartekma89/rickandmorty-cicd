@@ -13,13 +13,15 @@ const App = () => {
       <footer>
         <div className="flex">
           <img
-            src="/_resources/img/logo-dark-vertical-1.png"
+            src="./_resources/img/logo-dark-vertical-1.png"
             alt="Logo projektu Opanuj Frontend"
             className="w-32 mt-4 mx-auto justify-center"
           />
-          <div className="justify-end self-center bg-white rounded-lg shadow-sm p-2">
-            ENV: {import.meta.env.VITE_ENVIRONMENT ?? 'Local'} - VER: {__APP_VERSION__}
-          </div>
+          {import.meta.env.VITE_ENVIRONMENT !== 'PROD' && (
+            <div className="justify-end self-center bg-white rounded-lg shadow-sm p-2">
+              ENV: {import.meta.env.VITE_ENVIRONMENT ?? 'Local'} - VER: {__APP_VERSION__}
+            </div>
+          )}
         </div>
       </footer>
     </div>
