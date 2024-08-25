@@ -6,8 +6,10 @@ on:
       - master
 
 jobs:
-  pull_request:
+  pre-check:
     runs-on: windows-latest
+    environment:
+      name: 'Preview'
 
     steps:
       - name: Checkout repository

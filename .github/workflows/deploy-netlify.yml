@@ -2,15 +2,17 @@ name: Deploy - Netlify
 
 on:
   workflow_call:
-    secrets:
-      NETLIFY_AUTH_TOKEN:
-        required: true
-      NETLIFY_SITE_ID:
-        required: true
+    # secrets:
+    # NETLIFY_AUTH_TOKEN:
+    # required: true
+    # NETLIFY_SITE_ID:
+    # required: true
 
 jobs:
   deploy-netlify:
     runs-on: windows-latest
+    environment:
+      name: 'Development'
 
     steps:
       - name: Checkout repository
@@ -38,4 +40,5 @@ jobs:
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
+          github-deployment-environment: 'Development'
         timeout-minutes: 1
