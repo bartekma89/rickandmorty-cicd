@@ -1,0 +1,21 @@
+name: E2E tests
+description: Run E2E tests
+
+inputs:
+  baseUrl:
+    type: string
+    description: 'Testing base url'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+      shell: bash
+
+    - name: Run Playwright test
+      env:
+        E2E_BASE_URL: ${{ inputs.baseUrl }}
+      run: npx playwright test
+      shell: bash
