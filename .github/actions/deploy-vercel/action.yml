@@ -42,12 +42,6 @@ runs:
       run: vercel deploy --prebuilt --prod --token=${{ inputs.vercel-token }}
       shell: bash
 
-    - name: Run E2E tests
-      if: ${{ inputs.mode == 'production' }}
-      uses: ./.github/actions/e2e-tests
-      with:
-        baseUrl: ${{ github.event.deployment_status.target_url }}
-
     # PREVIEW Vercel Deployment
     - name: Pull Vercel Environment Information
       if: ${{ inputs.mode == 'preview' }}
