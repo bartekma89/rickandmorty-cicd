@@ -7,6 +7,7 @@ on:
 jobs:
   deploy-netlify:
     uses: ./.github/workflows/deploy-netlify.yml
+    secrets: inherit
     # secrets:
     #   NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
     #   NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
