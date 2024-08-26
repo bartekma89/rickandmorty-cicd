@@ -71,7 +71,7 @@ runs:
     - name: Run Playwright test
       if: ${{ inputs.mode == 'preview' }}
       env:
-        E2E_BASE_URL: ${{ process.env.DEPLOY_URL }}
+        E2E_BASE_URL: ${{ env.DEPLOY_URL }}
       run: npx playwright test
       shell: bash
 
