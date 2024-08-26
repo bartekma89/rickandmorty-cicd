@@ -42,6 +42,12 @@ runs:
       run: vercel deploy --prebuilt --prod --token=${{ inputs.vercel-token }}
       shell: bash
 
+    - name: Run E2E tests
+      if: ${{ inputs.mode == 'production' }}
+      uses: ./.github/actions/e2e-tests
+      with:
+        baseUrl: ${{ github.event.deployment_status.target_url }}
+
     # PREVIEW Vercel Deployment
     - name: Pull Vercel Environment Information
       if: ${{ inputs.mode == 'preview' }}
@@ -61,18 +67,6 @@ runs:
         DEPLOY_OUTPUT="$(vercel deploy --prebuilt --token=${{ inputs.vercel-token }})"
         DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | grep http | tail -n 1)
         echo "DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
-      shell: bash
-
-    - name: Install Playwright Browsers
-      if: ${{ inputs.mode == 'preview' }}
-      run: npx playwright install --with-deps
-      shell: bash
-
-    - name: Run Playwright test
-      if: ${{ inputs.mode == 'preview' }}
-      env:
-        E2E_BASE_URL: ${{ github.event.deployment_status.target_url }}
-      run: npx playwright test
       shell: bash
 
     - name: Comment with preview URL
