@@ -65,13 +65,13 @@ runs:
 
     - name: Install Playwright Browsers
       if: ${{ inputs.mode == 'preview' }}
-      # env:
-      # VITE_BASE_URL: ${{ process.env.DEPLOY_URL }}
       run: npx playwright install --with-deps
       shell: bash
 
     - name: Run Playwright test
       if: ${{ inputs.mode == 'preview' }}
+      env:
+        E2E_BASE_URL: ${{ process.env.DEPLOY_URL }}
       run: npx playwright test
       shell: bash
 
