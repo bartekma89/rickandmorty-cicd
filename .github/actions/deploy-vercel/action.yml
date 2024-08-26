@@ -64,13 +64,13 @@ runs:
       shell: bash
 
     - name: Install Playwright Browsers
-      if: ${{ inputs.mode === 'preview' }}
+      if: ${{ inputs.mode == 'preview' }}
       # env:
       # VITE_BASE_URL: ${{ process.env.DEPLOY_URL }}
       run: npx playwright install --with-deps
 
     - name: Run Playwright test
-      if: ${{ inputs.mode === 'preview' }}
+      if: ${{ inputs.mode == 'preview' }}
       run: npx playwright test
 
     - name: Comment with preview URL
