@@ -71,6 +71,11 @@ runs:
         BASE_URL: ${{ github.event.deployment_status.target_url }}
       shell: bash
 
+    - name: Runs E2E tests
+      uses: ./.github/actions/e2e-tests
+      with:
+        baseUrl: ${{ env.DEPLOY_URL }}
+
     - name: Comment with preview URL
       if: ${{ inputs.mode == 'preview' }}
       uses: actions/github-script@v7
