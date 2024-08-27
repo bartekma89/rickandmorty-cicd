@@ -69,6 +69,7 @@ runs:
         echo "DEPLOY_URL is $DEPLOY_URL"
       env:
         BASE_URL: ${{ github.event.deployment_status.target_url }}
+      shell: bash
 
     - name: Comment with preview URL
       if: ${{ inputs.mode == 'preview' }}
