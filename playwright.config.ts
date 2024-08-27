@@ -1,7 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import dontenv from 'dotenv';
 
-dontenv.config();
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -19,9 +17,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: process.env.CI
-      ? process.env.E2E_BASE_URL ?? process.env.STAGE_URL
-      : 'http://localhost:3000',
+    baseURL: process.env.CI ? process.env.E2E_BASE_URL : 'http://localhost:3000',
     trace: 'on-first-retry',
   },
   projects: [
