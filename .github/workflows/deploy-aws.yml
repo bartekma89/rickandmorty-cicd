@@ -1,0 +1,28 @@
+name: Deploy - AWS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-aws:
+    runs-on: windows-latest
+    environment:
+      name: 'Production'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure node
+        uses: ./.github/actions/setup-project
+
+      - name: Lint code and run unit tests
+        uses: ./.github/actions/lint
+
+      - name: Build app
+        run: npm run build
+        env:
+          VITE_ENVIRONMENT: ${{ github.ref_name == 'master' && 'DEV' }}
+
+      - name: Deploy to AWS
+        run: aws s3 sync dist s3://rm-cicd
