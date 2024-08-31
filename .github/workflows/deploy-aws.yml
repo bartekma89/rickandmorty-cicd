@@ -22,7 +22,14 @@ jobs:
       - name: Build app
         run: npm run build
         env:
-          VITE_ENVIRONMENT: ${{ github.ref_name == 'master' && 'DEV' }}
+          VITE_ENVIRONMENT: 'PROD'
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4.0.2
+        with:
+          aws-region: eu-central-1
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
       - name: Deploy to AWS
         run: aws s3 sync dist s3://rm-cicd
