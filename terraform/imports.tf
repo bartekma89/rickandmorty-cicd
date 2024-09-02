@@ -4,6 +4,11 @@ import {
 }
 
 import {
+  to = aws_s3_bucket_website_configuration.rm_cicd
+  id = "rm-cicd"
+}
+
+import {
   to = aws_cloudfront_distribution.rm_cdn
   id = "E2ORO1KZ3OULWZ"
 }
