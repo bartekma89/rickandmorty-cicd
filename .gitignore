@@ -9,3 +9,4 @@ out
 .vscode/settings.json
 .env
 .env.*
+.terraform
