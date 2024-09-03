@@ -1,4 +1,4 @@
-resource "aws_cloudfront_distribution" "rm_cdn" {
+resource "aws_cloudfront_distribution" "rm_cicd_cloudfront_distribution" {
   aliases                         = []
   comment                         = "RM-CICD Website"
   continuous_deployment_policy_id = null
