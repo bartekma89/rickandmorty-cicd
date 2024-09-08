@@ -42,6 +42,14 @@ runs:
       run: vercel deploy --prebuilt --prod --token=${{ inputs.vercel-token }}
       shell: bash
 
+    - name: Runs E2E tests
+      if: ${{ inputs.mode == 'production' }}
+      uses: ./.github/actions/e2e-tests
+      with:
+        baseUrl: ${{ vars.STAGE_URL }}
+        mode: 'production'
+      shell: bash
+
     # PREVIEW Vercel Deployment
     - name: Pull Vercel Environment Information
       if: ${{ inputs.mode == 'preview' }}
@@ -69,6 +77,14 @@ runs:
         echo "DEPLOY_URL is $DEPLOY_URL"
       env:
         BASE_URL: ${{ github.event.deployment_status.target_url }}
+      shell: bash
+
+    - name: Runs E2E tests
+      if: ${{ inputs.mode == 'preview' }}
+      uses: ./.github/actions/e2e-tests
+      with:
+        baseUrl: ${{ env.DEPLOY_URL }}
+        mode: 'preview'
       shell: bash
 
     - name: Comment with preview URL
