@@ -6,16 +6,29 @@ inputs:
     type: string
     description: 'Testing base url'
     required: true
+  mode:
+    type: string;
+    description: 'Deployment mode'
+    required: true
 
 runs:
   using: 'composite'
   steps:
     - name: Install Playwright Browsers
+      if: ${{ inputs.mode == 'production' }}
       run: npx playwright install --with-deps
       shell: bash
 
     - name: Run Playwright test
+      if: ${{ inputs.mode == 'production' }}
       env:
         E2E_BASE_URL: ${{ inputs.baseUrl }}
       run: npx playwright test
+      shell: bash
+
+    - name: Run E2E tests
+      if: ${{ inputs.mode == 'preview' }}
+      run: npm run test:e2e
+      env:
+        E2E_BASE_URL: ${{ inputs.baseUrl }}
       shell: bash

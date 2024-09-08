@@ -28,11 +28,8 @@ jobs:
           mode: 'production'
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           env: 'STAGE'
+          base-url: ${{ vars.STAGE_URL }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-
-      - name: Runs E2E tests
-        uses: ./.github/actions/e2e-tests
-        with:
-          baseUrl: ${{ vars.STAGE_URL }}
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
