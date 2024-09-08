@@ -40,5 +40,8 @@ jobs:
       - name: Deploy to AWS
         run: aws s3 sync dist s3://rm-cicd
 
+      - name: Deploy images to AWS s3
+        run: aws s3 sync dist/resources/img s3://rm-cicd-images --exclude "*" --include "*.jpg" --include "*.png"
+
       - name: Clear Cloudfront cache
         run: aws cloudfront create-invalidation --distribution-id ${{secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID}} --paths "/*"

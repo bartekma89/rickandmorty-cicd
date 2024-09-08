@@ -9,7 +9,8 @@
     "dev": "vite",
     "lint": "eslint src",
     "test": "vitest src",
-    "test:e2e": "npx playwright install && playwright test"
+    "test:e2e": "npx playwright install && playwright test",
+    "test:watch": "npx playwright test --ui"
   },
   "author": "Przeprogramowani",
   "license": "ISC",

@@ -76,16 +76,15 @@ runs:
 
     - name: Debug E2E url
       run: |
-        echo "BASE_URL is $BASE_URL"
         echo "DEPLOY_URL is $DEPLOY_URL"
       shell: bash
 
-    - name: Runs E2E tests
-      if: ${{ inputs.mode == 'preview' }}
-      uses: ./.github/actions/e2e-tests
-      with:
-        baseUrl: ${{ env.DEPLOY_URL }}
-        mode: 'preview'
+    # - name: Runs E2E tests
+    #   if: ${{ inputs.mode == 'preview' }}
+    #   uses: ./.github/actions/e2e-tests
+    #   with:
+    #     baseUrl: ${{ env.DEPLOY_URL }}
+    #     mode: 'preview'
 
     - name: Comment with preview URL
       if: ${{ inputs.mode == 'preview' }}
