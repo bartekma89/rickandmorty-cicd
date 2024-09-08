@@ -16,6 +16,10 @@ inputs:
     description: 'Deployment evnironment'
     required: true
     default: 'PREVIEW'
+  base-url:
+    type: string;
+    description: 'Deployment url'
+    required: false
 
 runs:
   using: 'composite'
@@ -46,7 +50,7 @@ runs:
       if: ${{ inputs.mode == 'production' }}
       uses: ./.github/actions/e2e-tests
       with:
-        baseUrl: ${{ vars.STAGE_URL }}
+        baseUrl: ${{ inputs.base-url }}
         mode: 'production'
       shell: bash
 
@@ -75,8 +79,6 @@ runs:
       run: |
         echo "BASE_URL is $BASE_URL"
         echo "DEPLOY_URL is $DEPLOY_URL"
-      env:
-        BASE_URL: ${{ github.event.deployment_status.target_url }}
       shell: bash
 
     - name: Runs E2E tests
