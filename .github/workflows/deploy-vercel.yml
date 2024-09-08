@@ -21,8 +21,6 @@ jobs:
 
       - name: Build app
         run: npm run build
-        env:
-          VITE_S3_IMAGES_BUCKET: ${{ secrets.VITE_S3_IMAGES_BUCKET }}
 
       - name: Deploy to Vercel
         uses: ./.github/actions/deploy-vercel

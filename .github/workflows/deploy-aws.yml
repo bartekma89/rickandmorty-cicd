@@ -23,6 +23,7 @@ jobs:
         run: npm run build
         env:
           VITE_ENVIRONMENT: 'PROD'
+          VITE_S3_IMAGES_BUCKET: ${{ secrets.VITE_S3_IMAGES_BUCKET }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4.0.2
