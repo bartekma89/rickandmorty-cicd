@@ -52,7 +52,6 @@ runs:
       with:
         baseUrl: ${{ inputs.base-url }}
         mode: 'production'
-      shell: bash
 
     # PREVIEW Vercel Deployment
     - name: Pull Vercel Environment Information
@@ -87,7 +86,6 @@ runs:
       with:
         baseUrl: ${{ env.DEPLOY_URL }}
         mode: 'preview'
-      shell: bash
 
     - name: Comment with preview URL
       if: ${{ inputs.mode == 'preview' }}
