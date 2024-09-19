@@ -4,6 +4,7 @@ interface ImportMetaEnv {
   readonly APP_VERSION: string;
   readonly VITE_ENVIRONMENT: string;
   readonly VITE_S3_IMAGES_BUCKET: string;
+  readonly VITE_AWS_MONITORING_API: string;
 }
 
 interface ImportMeta {
