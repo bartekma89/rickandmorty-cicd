@@ -1,6 +1,6 @@
 # For Windows
 # data "external" "lambda_builder_sh" {
-#   # program = ["cmd", "/C", "cd ${var.lambda_source_dir} && npm install >NUL 2>&1 && npm run build >NUL 2>&1 && echo {\"status\": \"success\"}"]
+#   program = ["cmd", "/C", "cd ${var.lambda_source_dir} && npm install >NUL 2>&1 && npm run build >NUL 2>&1 && echo {\"status\": \"success\"}"]
 # }
 
 # For Linux / MacOS
