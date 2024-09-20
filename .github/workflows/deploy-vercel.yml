@@ -25,10 +25,11 @@ jobs:
       - name: Deploy to Vercel
         uses: ./.github/actions/deploy-vercel
         with:
+          env: 'STAGE'
           mode: 'production'
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          env: 'STAGE'
           base-url: ${{ vars.STAGE_URL }}
+          monitoring: ${{ secrets.AWS_MONITORING_API }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
