@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "ncc build index.ts -o dist && cd dist && powershell Compress-Archive -Path index.js -DestinationPath lambda.zip",
+    "build": "powershell Remove-Item -Recurse -Force ./dist && ncc build index.ts -o dist && cd dist && powershell Compress-Archive -Path index.js -DestinationPath lambda.zip",
     "build:local": "ncc build index.ts"
   },
   "keywords": [],
