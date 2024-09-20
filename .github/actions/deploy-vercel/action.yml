@@ -23,7 +23,7 @@ inputs:
   monitoring:
     type: string;
     description: 'Url to monitoring performance'
-    required: true
+    required: false
 
 runs:
   using: 'composite'
