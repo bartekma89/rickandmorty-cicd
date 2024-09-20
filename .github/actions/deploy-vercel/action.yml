@@ -69,7 +69,7 @@ runs:
       run: vercel build --token=${{ inputs.vercel-token }}
       env:
         VITE_ENVIRONMENT: ${{ inputs.env }}
-        VITE_AWS_MONITORING_API: ${{ secrets.AWS_MONITORING_API }}
+        VITE_AWS_MONITORING_API: ${{ secrets.monitoring }}
       shell: bash
 
     - name: Deploy to Vercel
