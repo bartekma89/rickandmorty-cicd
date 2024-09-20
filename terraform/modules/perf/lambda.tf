@@ -1,7 +1,7 @@
 # For Windows
-data "external" "lambda_builder_sh" {
-  program = ["cmd", "/C", "cd ${var.lambda_source_dir} && npm install >NUL 2>&1 && npm run build >NUL 2>&1 && echo {}"]
-}
+# data "external" "lambda_builder_sh" {
+#   program = ["cmd", "/C", "cd ${var.lambda_source_dir} && npm install && npm run build && echo {}"]
+# }
 
 # For Linux / MacOS
 # data "external" "lambda_builder_sh" {
@@ -61,7 +61,7 @@ resource "aws_iam_role_policy" "lambda_metric_policy" {
 }
 
 resource "aws_lambda_function" "perf_lambda" {
-  depends_on    = [data.external.lambda_builder_sh]
+  # depends_on    = [data.external.lambda_builder_sh]
   filename      = "${var.lambda_source_dir}/dist/lambda.zip"
   function_name = var.lambda_function_name
   role          = aws_iam_role.iam_role_for_lambda.arn
