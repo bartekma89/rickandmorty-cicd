@@ -31,5 +31,5 @@ module "perf" {
 
   lambda_function_name = "website_perf_check"
 
-  lambda_source_dir = "${path.cwd}/../lib/lambda-perf"
+  lambda_source_dir = "${path.root}/../lib/lambda-perf"
 }
