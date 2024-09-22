@@ -5,6 +5,10 @@ import { Character } from '../../lib/rick-and-morty-api-client';
 const CharacterDetails = () => {
   const character = useLoaderData() as Character;
 
+  function addToFavourite() {
+    throw new Error('Not implemented');
+  }
+
   return (
     <>
       <div className="bg-white rounded-lg shadow-sm p-4 mb-4">
@@ -33,6 +37,12 @@ const CharacterDetails = () => {
       >
         Back to list
       </Link>
+      <button
+        onClick={addToFavourite}
+        className="bg-purple-500 rounded-md px-4 py-2 ml-2 text-white hover:bg-purple-400"
+      >
+        Add To Favourite
+      </button>
     </>
   );
 };

@@ -5,6 +5,8 @@ interface ImportMetaEnv {
   readonly VITE_ENVIRONMENT: string;
   readonly VITE_S3_IMAGES_BUCKET: string;
   readonly VITE_AWS_MONITORING_API: string;
+  readonly VITE_SENTRY_DSN: string;
+  readonly SENTRY_AUTH_TOKEN: string;
 }
 
 interface ImportMeta {
