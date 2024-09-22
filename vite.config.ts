@@ -16,9 +16,9 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    process.env.VITE_ENVIRONMENT === 'production' &&
+    process.env.VITE_ENVIRONMENT === 'PROD' &&
       sentryVitePlugin({
-        org: 'przeprogramowani-kurs',
+        org: 'przeprogramowani-kurs-a4',
         project: 'rm-cicd',
         authToken: process.env.SENTRY_AUTH_TOKEN,
       }),

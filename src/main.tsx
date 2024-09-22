@@ -10,6 +10,8 @@ import { initSentry } from './sentry';
 const Characters = lazy(() => import('./pages/Characters'));
 const CharacterDetails = lazy(() => import('./pages/CharacterDetails'));
 
+initSentry();
+
 const router = createHashRouter([
   {
     path: '/',
@@ -30,8 +32,6 @@ const router = createHashRouter([
     ],
   },
 ]);
-
-initSentry();
 
 ReactDOM.createRoot(document.getElementById('app') as HTMLElement).render(
   <React.StrictMode>
