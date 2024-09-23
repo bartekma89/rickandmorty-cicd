@@ -1,0 +1,22 @@
+name: Notify Webhook
+description: Use webhook to send a notification
+
+inputs:
+  message:
+    type: string
+    message: 'Message to notify'
+    required: true
+  webhook_url:
+    type: string;
+    description: 'Webhook url'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Call webhook
+    run: node .github/actions/notify-webhook/webhook.js
+    shell: bash
+    env:
+      NOTIFY_MESSAGE: ${{ inputs.message }}
+      WEBHOOK_URL: ${{ inputs.webhook_url }}
