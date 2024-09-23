@@ -29,14 +29,14 @@ jobs:
 
       - name: Send notification
         if: ${{ success() }}
-        uses: './.github/actions/notify-webhook.js'
+        uses: './.github/actions/notify-webhook'
         with:
           message: 'Job success!'
           webhook_url: ${{ secrets.NOTIFY_WEBHOOK_URL }}
 
       - name: Send notification
         if: ${{ failure() }}
-        uses: './.github/actions/notify-webhook.js'
+        uses: './.github/actions/notify-webhook'
         with:
           message: 'Job failed!'
           webhook_url: ${{ secrets.NOTIFY_WEBHOOK_URL }}
