@@ -23,7 +23,8 @@ jobs:
       - name: Run e2e tests
         uses: './.github/actions/e2e-tests'
         with:
-          baseUrl: ${{ vars.STAGE_URL }}
+          # baseUrl: ${{ vars.DEV_URL }}
+          baseUrl: 'test'
           mode: 'preview'
 
       - name: Send notification
