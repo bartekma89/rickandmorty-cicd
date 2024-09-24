@@ -15,8 +15,8 @@ runs:
   using: 'composite'
   steps:
     - name: Call webhook
-    run: node .github/actions/notify-webhook/webhook.js
-    shell: bash
-    env:
-      NOTIFY_MESSAGE: ${{ inputs.message }}
-      WEBHOOK_URL: ${{ inputs.webhook_url }}
+      run: node ./.github/actions/notify-webhook/webhook.js
+      shell: bash
+      env:
+        NOTIFY_MESSAGE: ${{ inputs.message }}
+        WEBHOOK_URL: ${{ inputs.webhook_url }}
