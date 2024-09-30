@@ -1,9 +1,25 @@
 import React, { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { Character } from '../../lib/rick-and-morty-api-client';
+import { useFlag } from '@featurevisor/react';
+
+const Pagination = () => {
+  return (
+    <div className="flex justify-between">
+      <button className="bg-slate-400">Prev</button>
+      <button className="bg-slate-400">Next</button>
+    </div>
+  );
+};
 
 const Characters = () => {
-  const { characters } = useLoaderData() as { characters: Character[] };
+  const { characters } = useLoaderData() as {
+    characters: Character[];
+  };
+
+  const isPaginationEnabled = useFlag('pagination', {
+    country: new URLSearchParams(window.location.search).get('country'),
+  });
 
   useEffect(() => {
     const fetchData: Partial<PerformanceResourceTiming> = performance.getEntriesByName(
@@ -38,6 +54,7 @@ const Characters = () => {
           </li>
         ))}
       </ul>
+      {isPaginationEnabled && <Pagination />}
     </div>
   );
 };

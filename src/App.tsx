@@ -2,8 +2,11 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { APP_IMAGES } from './mainConfig';
+import { useStatus } from '@featurevisor/react';
 
 const App = () => {
+  const { isReady } = useStatus();
+
   return (
     <div>
       <header>
@@ -12,7 +15,7 @@ const App = () => {
       <div className="bg-white rounded-lg shadow-sm p-4 mb-4">
         <h1 className="text-xl font-bold text-center">🚀 Rick and Morty - From AWS! 🚀</h1>
       </div>
-      <Outlet />
+      {isReady && <Outlet />}
       <footer>
         <div className="flex relative">
           <img
