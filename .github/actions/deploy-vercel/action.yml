@@ -44,6 +44,8 @@ runs:
       env:
         VITE_ENVIRONMENT: ${{ inputs.env }}
         VITE_AWS_MONITORING_API: ${{ inputs.monitoring }}
+        VITE_AWS_FEATUREVISIOR: ${{secrets.AWS_FEATUREVISIOR}}
+        VITE_ENV_NAME: 'staging'
       shell: bash
 
     - name: Deploy to Vercel
@@ -70,6 +72,8 @@ runs:
       env:
         VITE_ENVIRONMENT: ${{ inputs.env }}
         VITE_AWS_MONITORING_API: ${{ inputs.monitoring }}
+        VITE_AWS_FEATUREVISIOR: ${{secrets.AWS_FEATUREVISIOR}}
+        VITE_ENV_NAME: 'preview'
       shell: bash
 
     - name: Deploy to Vercel
