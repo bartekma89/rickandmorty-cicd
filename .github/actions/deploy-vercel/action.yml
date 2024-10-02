@@ -24,6 +24,10 @@ inputs:
     type: string;
     description: 'Url to monitoring performance'
     required: false
+  featurevisior:
+    type: string
+    description: 'AWS url to the featurevisior stage'
+    required: true
 
 runs:
   using: 'composite'
@@ -44,7 +48,7 @@ runs:
       env:
         VITE_ENVIRONMENT: ${{ inputs.env }}
         VITE_AWS_MONITORING_API: ${{ inputs.monitoring }}
-        VITE_AWS_FEATUREVISIOR: ${{secrets.AWS_FEATUREVISIOR}}
+        VITE_AWS_FEATUREVISIOR: ${{inputs.featurevisior}}
         VITE_ENV_NAME: 'staging'
       shell: bash
 
@@ -72,7 +76,7 @@ runs:
       env:
         VITE_ENVIRONMENT: ${{ inputs.env }}
         VITE_AWS_MONITORING_API: ${{ inputs.monitoring }}
-        VITE_AWS_FEATUREVISIOR: ${{secrets.AWS_FEATUREVISIOR}}
+        VITE_AWS_FEATUREVISIOR: ${{inputs.featurevisior}}
         VITE_ENV_NAME: 'preview'
       shell: bash
 

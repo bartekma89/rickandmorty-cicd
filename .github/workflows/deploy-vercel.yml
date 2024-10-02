@@ -30,6 +30,7 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           monitoring: ${{ secrets.AWS_MONITORING_API }}
           base-url: ${{ vars.STAGE_URL }}
+          featurevisior: ${{secrets.AWS_FEATUREVISIOR}}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
